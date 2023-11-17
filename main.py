@@ -1,19 +1,28 @@
 import sqlite3
+import Inventory
+import User
 
 class main:
+  ## Login Page
   print("Welcome to the Book Nook! \n (1) Login \n (2) Create Account \n (3) Logout")
-
   preLogin = input(" Please choose an option here: ")
   inPreLogin = int(preLogin)
 
+  ## Main Menu
   if(inPreLogin == 1):
       print("\nWelcome to the Book Nook! \n (1) Logout \n (2) View Account Information \n (3) Inventory Information \n (4) Cart Information")
         mainMenu = input(" Please choose an option here: ")
         inMainMenu = int(mainMenu)
+
+        ## Logout
         if(inMainMenu == 1):
             print("\nLogged Out")
+
+        ## View Account Info Page
         elif(inMainMenu == 2):
             print("\nAccount Info")
+
+        ## View Inventory Page    
         elif(inMainMenu == 3):
             print("\nInventory \n (1) Go Back \n (2) View Inventory \n (3) Search Inventory")
             inventory = input(" Please choose an option here: ")
@@ -26,6 +35,8 @@ class main:
                 print("Searching Inventory...")
             else:
                 print("Invalid Response")
+
+        ## View Cart Information Page
         elif(inMainMenu == 4):
             print("\nCart \n (1) Go Back \n (2) View Cart \n (3) Add Items to Cart \n (4) Remove an Item from Cart \n (5) Check Out")
             cart = input(" Please choose an option here: ")
@@ -44,8 +55,12 @@ class main:
                 print("Invalid Response")
         else:
             print("Invalid")
+
+  ## Create an Account Page
   elif(inPreLogin == 2):
       print("\nCreating Account")
+
+  ## Logout
   elif(inPreLogin == 3):
       print("\nYou have successfully Logged Out")
   else:
