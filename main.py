@@ -38,7 +38,6 @@ class main:
                         if(inInventory == 1):
                             print("Going Back...")
                         elif(inInventory == 2):
-                            print("Inventory...")
                             inv.viewInventory()
                         elif(inInventory == 3):
                             print("Searching Inventory...")
