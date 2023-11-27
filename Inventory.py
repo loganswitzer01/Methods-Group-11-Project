@@ -23,27 +23,25 @@ class Inventory:
         except:
             print("Failed connection.")
 
-            ## exits the program if unsuccessful
             sys.exit()
 
-        print() ## spacing's sake
-
-        ## cursor to send queries through
         cursor = connection.cursor()
 
-        ## sends query and grabs data
-        ## SELECT queries return a tuple for each row contained in a list
-        ## --> a list of tuples
         cursor.execute("SELECT * FROM inventory")
 
-        ## only needed if you're running a SELECT
-        ## this actually grabs the data
         result = cursor.fetchall()
 
-        ## illustrates what unformatted results look like
-        print("Entire result set: ", result, sep="\n", end="\n\n\n")
+        for x in result:
+        ## you can print the entire tuple --> print(x)
+        ## or you can print items from it using indices
+        ## first item --> x[0]
+        ## second item --> x[1]
+        ## etc... (for however many columns a result has)
+            print("Title:", x[1]) ## only the ISBN
+            print("\tAuthor:", x[2], "\tISBN:", x[0])
+            print("\tGenre:", x[3], "\tRelease Date:", x[4])
+            print("\tPages:", x[5], "\tNumber in Stock:", x[6], "\n")
 
-        ## close the cursor and connection once you're done
         cursor.close()
         connection.close()
 
