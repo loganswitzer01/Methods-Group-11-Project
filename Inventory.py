@@ -1,5 +1,6 @@
 import sqlite3
 import sys
+from tokenize import String
 
 class Inventory:  
     dbName = ""
@@ -14,11 +15,8 @@ class Inventory:
         tableName = intableName
     
     def viewInventory(self):
-        ## attempts to connect to the database
         try:
             connection = sqlite3.connect("methods.db")
-
-            print("Successful connection.")
 
         except:
             print("Failed connection.")
@@ -27,17 +25,12 @@ class Inventory:
 
         cursor = connection.cursor()
 
-        cursor.execute("SELECT * FROM inventory")
+        cursor.execute("SELECT * FROM Inventory")
 
         result = cursor.fetchall()
 
         for x in result:
-        ## you can print the entire tuple --> print(x)
-        ## or you can print items from it using indices
-        ## first item --> x[0]
-        ## second item --> x[1]
-        ## etc... (for however many columns a result has)
-            print("Title:", x[1]) ## only the ISBN
+            print("Title:", x[1])
             print("\tAuthor:", x[2], "\tISBN:", x[0])
             print("\tGenre:", x[3], "\tRelease Date:", x[4])
             print("\tPages:", x[5], "\tNumber in Stock:", x[6], "\n")
@@ -46,7 +39,35 @@ class Inventory:
         connection.close()
 
     def searchInventory(self):
-        print("Here is the search")
+        title = input("\n Please enter a title here: ")
+        inTitle = str(title)
+
+        print("\nSearch Results:")
+
+        try:
+            connection = sqlite3.connect("methods.db")
+
+        except:
+            print("Failed connection.")
+
+            sys.exit()
+
+        cursor = connection.cursor()
+
+        search="SELECT * FROM inventory WHERE Title LIKE \"%"+inTitle+"%\""
+
+        cursor.execute(search)
+
+        result = cursor.fetchall()
+
+        for x in result:
+            print(" Title:", x[1])
+            print("\t Author:", x[2], "\tISBN:", x[0])
+            print("\t Genre:", x[3], "\tRelease Date:", x[4])
+            print("\t Pages:", x[5], "\tNumber in Stock:", x[6])
+
+        cursor.close()
+        connection.close()
 
     def decreaseStock(self, ISBN):
         print()

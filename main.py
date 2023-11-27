@@ -1,9 +1,9 @@
 import sqlite3
-from Inventory import Inventory 
+from Inventory import Inventory
 import User
 
 class main:
-    inv = Inventory()  
+    inv = Inventory()
 
     ## Login Page
     inPreLogin=0
@@ -40,7 +40,7 @@ class main:
                         elif(inInventory == 2):
                             inv.viewInventory()
                         elif(inInventory == 3):
-                            print("Searching Inventory...")
+                            inv.searchInventory() 
                         else:
                             print("Invalid Response")
                 
