@@ -1,8 +1,10 @@
 import sqlite3
-import Inventory
+from Inventory import Inventory 
 import User
 
 class main:
+    inv = Inventory()  
+
     ## Login Page
     inPreLogin=0
     while(inPreLogin != 3):
@@ -37,6 +39,7 @@ class main:
                             print("Going Back...")
                         elif(inInventory == 2):
                             print("Inventory...")
+                            inv.viewInventory()
                         elif(inInventory == 3):
                             print("Searching Inventory...")
                         else:
