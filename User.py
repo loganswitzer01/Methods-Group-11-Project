@@ -38,16 +38,29 @@ class User:
         return false
 
     def viewAccountInformation():
-        print("User ID: ", userID)
-        print("Email: ", email)
-        print("Password: ", password)
-        print("First Name: ", firstName)
-        print("Last Name: ", lastName)
-        print("Address: ", address)
-        print("City: ", city)
-        print("State: ", state)
-        print("Zip: ", zip)
-        print("Payment: ", payment)
+        try:
+                connection = sqlite3.connect("methods.db")
+    
+            except:
+                print("Failed connection.")
+    
+                sys.exit()
+    
+            cursor = connection.cursor()
+    
+            cursor.execute("SELECT * FROM user")
+    
+            result = cursor.fetchall()
+    
+            for x in result:
+                print("userID:", x[0])
+                print("\tName:", x[3], x[4])
+                print("\tEmail:", x[1], "\tPassword:", x[2])
+                print("\tAdress:", x[5], x[6], x[7], x[8])
+                print("\tPayment:", x[9])
+    
+            cursor.close()
+            connection.close()
 
     def createAccount(string inuserID, string inemail, string inpassword. string infirstName, string inlastName, string inaddress, string incity, string instate, string inzip, string inpayment):
         userID = inuserID
