@@ -1,9 +1,9 @@
 import sqlite3
 import sys
-from tokenize import string
+from tokenize import String
 
 
-class Cart:
+class cart:
     def _init_(self, user_id, cart_id, quantiy, book_name, book_id):
         self.user_id = user_id
         self.cart_id = user_id + 69
