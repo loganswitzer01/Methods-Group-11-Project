@@ -1,4 +1,7 @@
 import sqlite3
+import sys
+from tokenize import String
+
 class User:  
     dbName = ""
     tableName = ""
