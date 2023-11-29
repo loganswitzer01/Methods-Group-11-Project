@@ -1,6 +1,7 @@
 import sqlite3
 from Inventory import Inventory
 import User
+from user import user
 
 class main:
     inv = Inventory()
