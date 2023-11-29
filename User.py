@@ -39,7 +39,7 @@ class User:
 
     def viewAccountInformation():
         try:
-                connection = sqlite3.connect("methods.db")
+            connection = sqlite3.connect("methods.db")
     
             except:
                 print("Failed connection.")
@@ -62,7 +62,7 @@ class User:
             cursor.close()
             connection.close()
 
-    def createAccount(string inuserID, string inemail, string inpassword. string infirstName, string inlastName, string inaddress, string incity, string instate, string inzip, string inpayment):
+    def createAccount(inuserID, inemail, inpassword. infirstName, inlastName, inaddress, incity, instate, inzip, inpayment):
         userID = inuserID
         email = inemail
         password = inpassword
