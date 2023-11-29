@@ -17,11 +17,11 @@ class User:
     zip = ""
     payment = ""
   
-    def User():
+    def User(self):
         loggedIn = false
         userID = ""
         
-    def User(string indbname, string intableName):
+    def User(self, string indbname, string intableName):
         dbName = indbName
         tableName = intableName
         loggedIn = false
