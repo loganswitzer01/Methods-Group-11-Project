@@ -66,6 +66,9 @@ class main:
                             crt.remove()
                         elif(inCart == 5):
                             print("Checking out...")
+
+                            #clears out the cart after chekking out
+                            crt.clear()
                         else:
                             print("Invalid Response")
                 else:
