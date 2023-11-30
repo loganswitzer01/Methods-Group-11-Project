@@ -54,7 +54,7 @@ class Inventory:
 
         cursor = connection.cursor()
 
-        search="SELECT * FROM inventory WHERE Title LIKE \"%"+inTitle+"%\""
+        search="SELECT * FROM Inventory WHERE Title LIKE \"%"+inTitle+"%\""
 
         cursor.execute(search)
 
@@ -70,4 +70,36 @@ class Inventory:
         connection.close()
 
     def decreaseStock(self, ISBN):
-        print()
+        print("Deleting...")
+        try:
+            connection = sqlite3.connect("methods.db")
+
+        except:
+            print("Failed connection.")
+
+            sys.exit()
+
+        cursor = connection.cursor()
+
+        search="SELECT * FROM Inventory WHERE ISBN LIKE \""+ISBN+"\""
+
+        cursor.execute(search)
+
+        result = cursor.fetchall()
+
+        for x in result:
+            print(" Title:", x[1])
+            print("\t Author:", x[2], "\tISBN:", x[0])
+            print("\t Genre:", x[3], "\tRelease Date:", x[4])
+            print("\t Pages:", x[5], "\tNew Number in Stock:", x[6])
+
+        new = str(x[6] - 1)
+
+        update="UPDATE inventory SET Stock = "+new+" WHERE ISBN = \'"+ISBN+"\'"
+
+        cursor.execute(update)
+
+        connection.commit()
+        
+        cursor.close()
+        connection.close()
