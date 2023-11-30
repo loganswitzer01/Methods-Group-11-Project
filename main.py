@@ -1,11 +1,11 @@
 import sqlite3
 from Inventory import Inventory
-from User import user
-from cart import cart
+from User import User 
+#from cart import cart
 
 class main:
     inv = Inventory()
-    crt = cart()
+    #crt = cart()
 
     ## Login Page
     inPreLogin=0
@@ -57,18 +57,18 @@ class main:
                             print("Going Back...")
                         elif(inCart == 2):
                             print("Viewing Cart...")
-                            crt.view()
+                            #crt.view()
                         elif(inCart == 3):
                             print("Adding an item...")
-                            crt.add()
+                            #crt.add()
                         elif(inCart == 4):
                             print("Removing an item...")
-                            crt.remove()
+                            #crt.remove()
                         elif(inCart == 5):
                             print("Checking out...")
 
                             #clears out the cart after chekking out
-                            crt.clear()
+                            #crt.clear()
                         else:
                             print("Invalid Response")
                 else:
