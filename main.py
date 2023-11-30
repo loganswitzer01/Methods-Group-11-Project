@@ -5,6 +5,7 @@ from cart import cart
 
 class main:
     inv = Inventory()
+    crt = cart()
 
     ## Login Page
     inPreLogin=0
@@ -56,10 +57,13 @@ class main:
                             print("Going Back...")
                         elif(inCart == 2):
                             print("Viewing Cart...")
+                            crt.view()
                         elif(inCart == 3):
                             print("Adding an item...")
+                            crt.add()
                         elif(inCart == 4):
                             print("Removing an item...")
+                            crt.remove()
                         elif(inCart == 5):
                             print("Checking out...")
                         else:
